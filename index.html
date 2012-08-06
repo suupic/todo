@@ -21,8 +21,15 @@
 </head>
 <body>
   <script type="text/x-handlebars">
-    {{#view App.MyView}}
-      <h1>Hello world!</h1>
+    {{#view TodosView}}
+      <h1>{{App.name}}</h1>
+      {{isSelected}}
+      <a href="#" {{action "add"}}>add</a>
+      <ul>
+        {{#each TodosController.content}}
+          <li><a href="#" {{action "done"}}>{{text}}:{{isDone}}</a></li>
+        {{/each}}
+      </ul>
     {{/view}}
   </script>
 
